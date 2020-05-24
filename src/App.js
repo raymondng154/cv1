@@ -1,25 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
+import 'materialize-css/dist/css/materialize.min.css';
+import 'materialize-css/dist/js/materialize.min.js';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './components/pages/Home';
+import Skills from './components/pages/skills/Skills';
+import Experiences from './components/pages/experiences/Experiences';
+import Educations from './components/pages/educations/Educations';
+import Portfolios from './components/pages/portfolios/Portfolios';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <>
+        <Route exact path="/" component={Home} />
+        <Switch>
+          <Route path="/skills" component={Skills} />
+          <Route path="/experiences" component={Experiences} />
+          <Route path="/educations" component={Educations} />
+          <Route path="/portfolios" component={Portfolios} />
+        </Switch>
+      </>
+    </Router>
   );
 }
 
